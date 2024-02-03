@@ -1,12 +1,5 @@
 <!DOCTYPE html>
-/*
- * @Author: Eaton5959 eaton5959@163.com
- * @Date: 2024-02-03 01:49:56
- * @LastEditors: Eaton5959 eaton5959@163.com
- * @LastEditTime: 2024-02-03 02:22:51
- * @FilePath: \blog_app\application\views\admin\manage_articles.php
- * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
- */
+
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">

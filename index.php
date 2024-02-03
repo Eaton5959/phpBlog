@@ -1,4 +1,12 @@
 <?php
+/*
+ * @Author: Eaton5959 eaton5959@163.com
+ * @Date: 2024-02-03 21:03:11
+ * @LastEditors: Eaton5959 eaton5959@163.com
+ * @LastEditTime: 2024-02-03 21:26:57
+ * @FilePath: \phpBlog\index.php
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+ */
 require_once 'application/config/database.php';
 require_once 'application/models/TagModel.php';
 require_once './application/models/ArticleModel.php';
@@ -30,8 +38,13 @@ $AdminModel = new AdminModel($db)
                 <?php
 
                 if ($AdminModel->isLoggedIn()) { ?>
-                    <li><a href="admin/manage_articles.php" class="nav-link">管理文章</a></li>
-                    <li><a href="admin/logout.php" class="nav-link">退出登录</a></li>
+                    <li><a href="application/views/admin/manage_articles.php" class="nav-link">管理文章</a></li>
+                    <li><a href="?logout" class="nav-link">退出登录</a></li>
+                    <?php 
+                    if (isset($_GET['logout'])) {
+                        $AdminModel->logout();
+                    }
+                    ?>
                 <?php } else { ?>
                     <li><a href="application/views/admin/login.php" class="nav-link">作者登录</a></li>
                 <?php } ?>

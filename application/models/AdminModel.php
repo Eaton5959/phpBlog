@@ -3,7 +3,7 @@
  * @Author: Eaton5959 eaton5959@163.com
  * @Date: 2024-02-03 01:49:17
  * @LastEditors: Eaton5959 eaton5959@163.com
- * @LastEditTime: 2024-02-03 02:04:54
+ * @LastEditTime: 2024-02-03 21:34:39
  * @FilePath: \blog_app\application\models\AdminModel.php
  * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
  */
@@ -44,7 +44,7 @@ class AdminModel {
         $admin = $stmt->fetch(PDO::FETCH_ASSOC);
 
         // 如果用户存在且密码正确（使用相同的哈希方法比较）
-        if ($admin && $admin['password_hash'] === md5($password)) { // 实际应用中应使用 password_verify()
+        if ($admin && $admin['password_hash'] == md5($password)) { // 实际应用中应使用 password_verify()
             // 登录成功，可以创建session或token表示登录状态
             session_start();
             $_SESSION['admin_id'] = $admin['id'];
@@ -65,7 +65,7 @@ class AdminModel {
     // 注销登录
     public function logout()
     {
-        session_start();
+        // session_start();
         unset($_SESSION['admin_id']);
         unset($_SESSION['admin_username']);
         session_destroy();

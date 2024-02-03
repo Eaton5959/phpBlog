@@ -15,7 +15,7 @@
         <p style="color: red;"><?php echo htmlspecialchars($errorMessage); ?></p>
     <?php endif; ?>
 
-    <form action="?action=login" method="post">
+    <form action="login.php" method="post">
         <label for="username">用户名：</label>
         <input type="text" id="username" name="username" required>
         <br>
@@ -42,9 +42,10 @@
 
         if ($status) {
             $_SESSION['admin_logged_in'] = true;
-            header('Location: /');
+            header('Location: ../../../index.php');
         } else {
             $error = "无效的用户名或密码";
+            echo $error;
         }
     }
     ?>
